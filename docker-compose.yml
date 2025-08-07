@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  app:
+    image: php:8.2-fpm
+    container_name: forward-esl-app
+    working_dir: /var/www
+    volumes:
+      - ./workspace/web:/var/www
+    networks:
+      - forward-esl-network
+    depends_on:
+      - db
+      - redis
+
+  webserver:
+    image: nginx:alpine
+    container_name: forward-esl-webserver
+    ports:
+      - "8000:80"
+    volumes:
+      - ./workspace/web:/var/www
+      - ./conf/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+    networks:
+      - forward-esl-network
+
+  db:
+    image: postgres:15
+    container_name: forward-esl-postgres
+    environment:
+      POSTGRES_DB: forward_esl
+      POSTGRES_USER: forward_user
+      POSTGRES_PASSWORD: forward_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - forward-esl-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: forward-esl-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - forward-esl-network
+
+networks:
+  forward-esl-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
