@@ -1,23 +1,38 @@
-<?php $__env->startSection('title', 'Pricing - Forward ESL'); ?>
+<?php $__env->startSection('title', 'Pricing – Forward ESL'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <!-- Page Header -->
-    <section class="relative bg-cover bg-center py-24" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/homepage/about-us/pricing-african-american-girl-coffee.jpg');">
-        <div class="container max-w-7xl mx-auto px-4 text-center text-white relative z-10">
-            <h1 data-aos="fade-down" class="text-4xl md:text-5xl font-serif mb-4">PRICING</h1>
-            <h2 data-aos="fade-up" data-aos-delay="100" class="text-2xl md:text-3xl">Premium Learning. Exceptional Value.</h2>
+    <!-- Statistics Section -->
+    <section class="bg-forward-dark text-white py-16 relative overflow-hidden">
+        <div class="container max-w-7xl mx-auto px-4 text-center relative z-10">
+            <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 tracking-wide" data-aos="zoom-in">
+                OVER <span class="counter-number text-forward-orange text-4xl md:text-5xl lg:text-6xl font-black" data-target="1000000">1,000,000</span> SATISFIED STUDENTS!
+            </h3>
+            <p class="text-base md:text-lg lg:text-xl max-w-5xl mx-auto leading-relaxed text-gray-200" data-aos="fade-up" data-aos-delay="200">
+                We are the preferred partner of <span class="font-semibold text-white">150+ public sector organizations</span>, <span class="font-semibold text-white">100+ academic institutions</span>, 
+                <span class="font-semibold text-white">500+ corporations</span>, and members of the <span class="font-semibold text-white">Fortune Global 500</span>.
+            </p>
+        </div>
+        
+        <!-- Background decorations -->
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-10 right-20 w-2 h-2 bg-forward-orange rounded-full animate-ping"></div>
+            <div class="absolute bottom-16 left-16 w-3 h-3 bg-white/20 rounded-full animate-pulse"></div>
+            <div class="absolute top-1/3 left-10 w-1 h-1 bg-forward-orange rounded-full animate-ping" style="animation-delay: 1s;"></div>
         </div>
     </section>
 
-    <!-- Pricing Toggle -->
-    <section class="py-16">
+    <!-- Pricing Info -->
+    <section class="py-16 bg-white">
         <div class="container max-w-7xl mx-auto px-4">
             <div class="text-center mb-12">
-                <div class="inline-flex items-center bg-gray-100 rounded-full p-1">
-                    <button id="group-classes-btn" class="px-6 py-2 bg-forward-orange text-white rounded-full font-semibold transition-all">
+                <p class="text-lg text-gray-600 mb-8" data-aos="fade-up">
+                    All classes are 30 minutes long. Materials are bought separately.
+                </p>
+                <div class="inline-flex items-center bg-gray-100 rounded-full p-1" data-aos="fade-up" data-aos-delay="200">
+                    <button id="group-classes-btn" class="px-8 py-3 bg-forward-orange text-white rounded-full font-semibold transition-all shadow-lg">
                         Group Classes
                     </button>
-                    <button id="private-classes-btn" class="px-6 py-2 text-gray-600 rounded-full font-semibold transition-all hover:text-forward-orange">
+                    <button id="private-classes-btn" class="px-8 py-3 text-gray-600 rounded-full font-semibold transition-all hover:text-forward-orange">
                         Private Classes
                     </button>
                 </div>
@@ -180,7 +195,7 @@
             </div>
 
             <!-- Private Classes Pricing -->
-            <div id="private-pricing" class="hidden grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div id="private-pricing" class="hidden md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Foundations Plan -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform">
                     <div class="p-8">

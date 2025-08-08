@@ -28,7 +28,6 @@ services:
       - app
     networks:
       - forward-esl-network
-      - nginx-proxy
 
   db:
     image: postgres:15
