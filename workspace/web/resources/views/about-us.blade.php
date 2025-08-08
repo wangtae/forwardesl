@@ -4,55 +4,46 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-teal-400 via-teal-500 to-blue-600 overflow-hidden min-h-[500px] flex items-center">
-        <div class="container max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Content -->
-                <div class="text-white space-y-6" data-aos="fade-right">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                        ABOUT US
-                    </h1>
-                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-light leading-tight">
-                        Language learning made simple.
-                    </h2>
-                    <div class="space-y-4 text-lg md:text-xl leading-relaxed">
-                        <p>Get real results with live, personalized lessons from expert American English teachers.</p>
-                        <p>Powered by trusted U.S. school curriculum and advanced AI, you’ll gain the skills to succeed – at school, at work, and beyond – faster than ever before.</p>
-                        <p>Join the thousands succeeding with us. Start learning online anytime, anywhere!</p>
-                    </div>
-                    <a href="{{ url('/sign-up') }}" class="inline-block bg-forward-dark hover:bg-gray-800 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover-glow mt-6">
-                        Get Started
-                    </a>
-                </div>
-
-                <!-- Right Content - Image -->
-                <div class="relative" data-aos="fade-left" data-aos-delay="200">
-                    <div class="relative group">
-                        @if(file_exists(public_path('images/about/about-hero-woman.jpg')))
-                            <img src="{{ asset('images/about/about-hero-woman.jpg') }}" alt="Happy student with books" class="w-full max-w-md mx-auto rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-300">
-                        @else
-                            <div class="w-full max-w-md mx-auto aspect-[3/4] bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl shadow-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                                <div class="text-center text-white">
-                                    <div class="text-6xl mb-4">📚</div>
-                                    <p class="text-xl font-semibold">Happy Student</p>
-                                </div>
+    <section class="relative overflow-hidden min-h-[600px] flex items-center">
+        <!-- Background Image (Left Half) -->
+        <div class="absolute inset-0 w-1/2 bg-gradient-to-br from-teal-400 via-teal-500 to-blue-600">
+            <img src="{{ asset('images/about/about-hero-man.jpg') }}" 
+                 alt="Happy student" 
+                 class="w-full h-full object-cover object-right">
+        </div>
+        
+        <!-- Content Container -->
+        <div class="relative z-10 w-full">
+            <div class="container max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Empty column for image space on desktop -->
+                    <div class="hidden lg:block"></div>
+                    
+                    <!-- Right Content -->
+                    <div class="bg-white/95 backdrop-blur-sm p-8 lg:p-12 rounded-l-3xl lg:rounded-none lg:ml-auto" data-aos="fade-left">
+                        <div class="space-y-6">
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-forward-dark">
+                                ABOUT US
+                            </h1>
+                            <h2 class="text-2xl md:text-3xl lg:text-4xl font-light leading-tight text-gray-700">
+                                LANGUAGE LEARNING MADE SIMPLE.
+                            </h2>
+                            <div class="space-y-4 text-base md:text-lg leading-relaxed text-gray-600">
+                                <p>Get real results with live, personalized lessons from expert American English teachers.</p>
+                                <p>Powered by trusted U.S. school curriculum and advanced AI, you'll gain the skills to succeed – at school, at work, and beyond – faster than ever before.</p>
+                                <p>Join the thousands succeeding with us. Start learning online anytime, anywhere!</p>
                             </div>
-                        @endif
-                        <!-- Floating elements -->
-                        <div class="absolute -top-4 -right-4 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-bounce">
-                            <span class="text-2xl">✨</span>
-                        </div>
-                        <div class="absolute -bottom-6 -left-6 w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center animate-float">
-                            <span class="text-3xl">🎆</span>
+                            <a href="{{ url('/sign-up') }}" class="inline-block bg-forward-orange hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg mt-6">
+                                Get Started
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Background decorations -->
-        <div class="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full animate-pulse-slow"></div>
-        <div class="absolute bottom-20 left-20 w-24 h-24 bg-white/10 rounded-full animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+        <!-- Mobile Background -->
+        <div class="lg:hidden absolute inset-0 bg-gradient-to-br from-teal-400 via-teal-500 to-blue-600 opacity-90"></div>
     </section>
 
 

@@ -19,53 +19,18 @@
                     </a>
                 </div>
 
-                <!-- Right content - Students Grid -->
+                <!-- Right content - Hero Image -->
                 <div class="relative" data-aos="fade-left" data-aos-delay="200">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="space-y-6">
-                            <!-- Student 1 -->
-                            <div class="relative group overflow-hidden rounded-2xl shadow-lg hover-lift-lg">
-                                <div class="aspect-square bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center animate-bounce">
-                                        <span class="text-2xl">👋</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Student 2 -->
-                            <div class="relative group overflow-hidden rounded-2xl shadow-lg hover-lift-lg">
-                                <div class="aspect-square bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center animate-bounce" style="animation-delay: 0.5s;">
-                                        <span class="text-2xl">📚</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="space-y-6 pt-12">
-                            <!-- Student 3 -->
-                            <div class="relative group overflow-hidden rounded-2xl shadow-lg hover-lift-lg">
-                                <div class="aspect-square bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
-                                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center animate-bounce" style="animation-delay: 1s;">
-                                        <span class="text-2xl">🎯</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Student 4 -->
-                            <div class="relative group overflow-hidden rounded-2xl shadow-lg hover-lift-lg">
-                                <div class="aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
-                                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center animate-bounce" style="animation-delay: 1.5s;">
-                                        <span class="text-2xl">🎉</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <img src="{{ asset('images/hero/screenshot-main.png') }}" 
+                         alt="Forward ESL Learning Platform" 
+                         class="w-full h-auto rounded-2xl shadow-2xl hover-lift-lg">
                     
-                    <!-- Slider dots -->
-                    <div class="flex justify-center mt-8 space-x-3">
-                        <button class="w-3 h-3 bg-white rounded-full shadow-lg animate-pulse-slow"></button>
-                        <button class="w-3 h-3 bg-white/50 rounded-full shadow-lg"></button>
-                        <button class="w-3 h-3 bg-white/50 rounded-full shadow-lg"></button>
-                        <button class="w-3 h-3 bg-white/50 rounded-full shadow-lg"></button>
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-bounce">
+                        <span class="text-3xl">⭐</span>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center animate-float">
+                        <span class="text-4xl">🎓</span>
                     </div>
                 </div>
             </div>
@@ -112,9 +77,15 @@
                 <div class="swiper-wrapper items-center">
                     @for($i = 1; $i <= 16; $i++)
                         <div class="swiper-slide">
-                            <div class="bg-gray-100 rounded-lg p-6 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover-lift">
-                                <div class="text-gray-400 font-bold text-sm">Partner {{ $i }}</div>
-                            </div>
+                            @if(file_exists(public_path("images/partners/partner-{$i}.png")))
+                                <img src="{{ asset("images/partners/partner-{$i}.png") }}" 
+                                     alt="Partner {{ $i }}" 
+                                     class="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300 hover-lift">
+                            @else
+                                <div class="bg-gray-100 rounded-lg p-6 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover-lift">
+                                    <div class="text-gray-400 font-bold text-sm">Partner {{ $i }}</div>
+                                </div>
+                            @endif
                         </div>
                     @endfor
                 </div>
