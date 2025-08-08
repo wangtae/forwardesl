@@ -4,57 +4,78 @@
 
 @section('content')
     <!-- Hero Section with Slider -->
-    <section class="relative bg-gradient-to-r from-forward-orange to-orange-500 py-20 lg:py-32 gradient-animate overflow-hidden">
-        <div class="container max-w-7xl mx-auto px-4">
+    <section class="relative bg-gradient-to-r from-forward-orange to-orange-500 overflow-hidden">
+        <div class="container max-w-7xl mx-auto px-4 py-16 lg:py-24">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Left content -->
-                <div class="text-white" data-aos="fade-right" data-aos-delay="100">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-8 text-shadow-lg">
-                        <span class="block animate-fade-up">Native English teachers.</span>
-                        <span class="block animate-fade-up" style="animation-delay: 0.2s">US school curriculum.</span>
-                        <span class="block animate-fade-up" style="animation-delay: 0.4s">Affordable pricing.</span>
+                <div class="text-white order-2 lg:order-1">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+                        <span class="block">Native English teachers.</span>
+                        <span class="block">US school curriculum.</span>
+                        <span class="block">Affordable pricing.</span>
                     </h1>
-                    <a href="{{ url('/sign-up') }}" class="inline-block bg-forward-blue hover:bg-blue-800 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 animate-pulse-slow">
+                    <a href="{{ url('/sign-up') }}" class="inline-block bg-forward-blue hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
                         Get Started
                     </a>
                 </div>
 
-                <!-- Right content - Image Slider -->
-                <div class="relative" data-aos="fade-left" data-aos-delay="300">
-                    <div class="swiper hero-slider rounded-lg shadow-2xl overflow-hidden">
-                        <div class="swiper-wrapper">
-                            @for($i = 1; $i <= 5; $i++)
-                                <div class="swiper-slide">
-                                    @if(file_exists(public_path("images/hero/student-{$i}.jpg")))
-                                        <img src="{{ asset("images/hero/student-{$i}.jpg") }}" alt="Forward ESL Student" class="w-full h-auto">
-                                    @else
-                                        <img src="https://via.placeholder.com/600x400/FFA557/ffffff?text=Student+{{ $i }}" alt="Forward ESL Student {{ $i }}" class="w-full h-auto">
-                                    @endif
+                <!-- Right content - Image Grid -->
+                <div class="relative order-1 lg:order-2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            @if(file_exists(public_path("images/hero/student-1.png")))
+                                <img src="{{ asset('images/hero/student-1.png') }}" alt="Student 1" class="rounded-lg shadow-lg w-full hover-lift">
+                            @else
+                                <div class="bg-gray-200 rounded-lg aspect-square flex items-center justify-center">
+                                    <span class="text-gray-500">Student 1</span>
                                 </div>
-                            @endfor
+                            @endif
+                            @if(file_exists(public_path("images/hero/student-2.png")))
+                                <img src="{{ asset('images/hero/student-2.png') }}" alt="Student 2" class="rounded-lg shadow-lg w-full hover-lift">
+                            @else
+                                <div class="bg-gray-200 rounded-lg aspect-square flex items-center justify-center">
+                                    <span class="text-gray-500">Student 2</span>
+                                </div>
+                            @endif
                         </div>
-                        <!-- Slider Navigation -->
-                        <div class="swiper-pagination"></div>
+                        <div class="space-y-4 mt-8">
+                            @if(file_exists(public_path("images/hero/student-3.png")))
+                                <img src="{{ asset('images/hero/student-3.png') }}" alt="Student 3" class="rounded-lg shadow-lg w-full hover-lift">
+                            @else
+                                <div class="bg-gray-200 rounded-lg aspect-square flex items-center justify-center">
+                                    <span class="text-gray-500">Student 3</span>
+                                </div>
+                            @endif
+                            @if(file_exists(public_path("images/hero/student-4.png")))
+                                <img src="{{ asset('images/hero/student-4.png') }}" alt="Student 4" class="rounded-lg shadow-lg w-full hover-lift">
+                            @else
+                                <div class="bg-gray-200 rounded-lg aspect-square flex items-center justify-center">
+                                    <span class="text-gray-500">Student 4</span>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <!-- Slider dots -->
+                    <div class="flex justify-center mt-6 space-x-2">
+                        <button class="w-2 h-2 bg-white rounded-full"></button>
+                        <button class="w-2 h-2 bg-white/50 rounded-full"></button>
+                        <button class="w-2 h-2 bg-white/50 rounded-full"></button>
+                        <button class="w-2 h-2 bg-white/50 rounded-full"></button>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Decorative Elements -->
-        <div class="absolute top-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-x-16 -translate-y-16 animate-pulse-slow"></div>
-        <div class="absolute bottom-0 right-0 w-48 h-48 bg-white opacity-10 rounded-full translate-x-24 translate-y-24 animate-pulse-slow" style="animation-delay: 1s"></div>
     </section>
 
     <!-- Statistics Section with Counter Animation -->
-    <section class="bg-forward-dark text-white py-12 parallax" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('{{ asset('images/stats-bg.jpg') }}');">
-        <div class="container max-w-7xl mx-auto px-4 text-center" data-aos="zoom-in">
-            <h3 class="text-3xl font-bold mb-4">
-                Over <span class="counter-number text-4xl font-bold text-forward-orange" data-target="1000000">0</span>+ Satisfied Students!
+    <section class="bg-forward-dark text-white py-12">
+        <div class="container max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-2xl md:text-3xl font-bold mb-4">
+                OVER <span class="counter-number text-3xl md:text-4xl font-bold" data-target="1000000">1,000,000</span> SATISFIED STUDENTS!
             </h3>
-            <p class="text-lg">
-                We are the preferred partner of <span class="font-bold">150+</span> public sector organizations, 
-                <span class="font-bold">100+</span> academic institutions, <span class="font-bold">500+</span> corporations, 
-                and members of the Fortune Global 500.
+            <p class="text-base md:text-lg max-w-4xl mx-auto">
+                We are the preferred partner of 150+ public sector organizations, 100+ academic institutions, 
+                500+ corporations, and members of the Fortune Global 500.
             </p>
         </div>
     </section>

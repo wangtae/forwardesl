@@ -8,10 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'forward-orange': '#FF8041',
-        'forward-orange-light': '#FAA63F',
+        'forward-orange': '#EC5A2C',
+        'forward-orange-light': '#FF8041',
+        'forward-blue': '#2B3F58',
         'forward-navy': '#0D2C48',
-        'forward-dark': '#353535',
+        'forward-dark': '#2B3744',
         'forward-gray': '#F8F8F8',
         'forward-light-gray': '#F5F5F5',
         'forward-yellow': '#F4BF3A',
