@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-forward-orange text-white hover:bg-orange-600 focus:ring-forward-orange;
+  }
+
+  .btn-secondary {
+    @apply bg-forward-navy text-white hover:bg-blue-900 focus:ring-forward-navy;
+  }
+
+  .btn-outline {
+    @apply border-2 border-forward-navy text-forward-navy hover:bg-forward-navy hover:text-white focus:ring-forward-navy;
+  }
+
+  .nav-link {
+    @apply text-forward-dark hover:text-forward-orange transition-colors duration-200 font-medium;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-forward-navy mb-4;
+  }
+
+  .section-subheading {
+    @apply text-lg md:text-xl text-forward-gray mb-8;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
+  }
+
+  .wave-divider {
+    @apply w-full overflow-hidden leading-none;
+  }
+
+  .wave-divider svg {
+    @apply relative block w-full;
+    height: 60px;
+  }
+
+  /* Float Animation is now in utilities section */
+
+  @keyframes pulse-scale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .pulse-scale-animation {
+    animation: pulse-scale 2s ease-in-out infinite;
+  }
+
+  .gradient-orange {
+    @apply bg-gradient-to-r from-orange-400 to-forward-orange;
+  }
+
+  .gradient-navy {
+    @apply bg-gradient-to-r from-blue-800 to-forward-navy;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-forward-orange to-orange-600;
+  }
+
+  .hero-pattern {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255, 165, 87, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .blob {
+    @apply absolute opacity-30 blur-3xl;
+  }
+
+  .blob-orange {
+    @apply bg-forward-orange;
+  }
+
+  .blob-navy {
+    @apply bg-forward-navy;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-in {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .backdrop-blur-navbar {
+    @apply backdrop-blur-lg bg-white/90;
+  }
+
+  .shadow-navbar {
+    @apply shadow-md;
+  }
+
+  .transition-default {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Hero Section Animations */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes gradientShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes countUp {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes hoverLift {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 165, 87, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 165, 87, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 165, 87, 0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out both;
+  }
+
+  .animate-slide-right {
+    animation: slideInRight 0.8s ease-out both;
+  }
+
+  .gradient-animate {
+    background-size: 200% 200%;
+    animation: gradientShift 5s ease infinite;
+  }
+
+  .animate-count {
+    animation: countUp 1s ease-out;
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-10px);
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 2s infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .text-shadow-lg {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Testimonial Slider */
+  .testimonial-slide {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  .testimonial-slide.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .testimonial-slide.inactive {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+
+  /* Slider Navigation */
+  .slider-nav-dot {
+    @apply w-2 h-2 bg-gray-300 rounded-full transition-all duration-300;
+  }
+
+  .slider-nav-dot.active {
+    @apply w-8 bg-forward-orange;
+  }
+
+  /* Counter Animation */
+  .counter-number {
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+  }
+}

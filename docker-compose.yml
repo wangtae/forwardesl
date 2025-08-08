@@ -1,6 +1,8 @@
 services:
   app:
-    image: php:8.2-fpm
+    build:
+      context: .
+      dockerfile: Dockerfile.php
     container_name: forward-esl-app
     working_dir: /var/www
     volumes:
@@ -14,6 +16,9 @@ services:
   webserver:
     image: nginx:alpine
     container_name: forward-esl-webserver
+    environment:
+      - VIRTUAL_HOST=forward.loa.best
+      - VIRTUAL_PORT=80
     ports:
       - "20181:80"
     volumes:
@@ -23,6 +28,7 @@ services:
       - app
     networks:
       - forward-esl-network
+      - nginx-proxy
 
   db:
     image: postgres:15
@@ -49,6 +55,8 @@ services:
 networks:
   forward-esl-network:
     driver: bridge
+  nginx-proxy:
+    external: true
 
 volumes:
   postgres_data:
